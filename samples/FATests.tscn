@@ -1,0 +1,229 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://addons/fontawesome/nodes/IconTouchButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/fontawesome/samples/FATests.cs" type="Script" id=2]
+[ext_resource path="res://addons/fontawesome/resources/SampleTheme.tres" type="Theme" id=3]
+[ext_resource path="res://addons/fontawesome/nodes/FALabel.tscn" type="PackedScene" id=4]
+
+[node name="FATests" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Row" type="HBoxContainer" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1004.0
+margin_bottom = 580.0
+
+[node name="LeftCol" type="VBoxContainer" parent="Row"]
+margin_right = 490.0
+margin_bottom = 560.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="RichTextLabel" parent="Row/LeftCol"]
+margin_top = 107.0
+margin_right = 490.0
+margin_bottom = 145.0
+bbcode_enabled = true
+bbcode_text = "[center][b]FA IconTouchButton Grid[/b][/center]
+"
+text = "FA IconTouchButton Grid
+"
+fit_content_height = true
+
+[node name="Grid" type="GridContainer" parent="Row/LeftCol"]
+margin_left = 93.0
+margin_top = 149.0
+margin_right = 397.0
+margin_bottom = 453.0
+size_flags_horizontal = 4
+custom_constants/vseparation = 8
+custom_constants/hseparation = 8
+columns = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="I" parent="Row/LeftCol/Grid" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 96.0
+margin_bottom = 96.0
+Text = "adjust"
+
+[node name="I2" parent="Row/LeftCol/Grid" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 104.0
+margin_right = 200.0
+margin_bottom = 96.0
+Text = "hands"
+
+[node name="I3" parent="Row/LeftCol/Grid" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 208.0
+margin_right = 304.0
+margin_bottom = 96.0
+Text = "arrow-right"
+
+[node name="I4" parent="Row/LeftCol/Grid" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 104.0
+margin_right = 96.0
+margin_bottom = 200.0
+Text = "archway"
+
+[node name="I5" parent="Row/LeftCol/Grid" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 104.0
+margin_top = 104.0
+margin_right = 200.0
+margin_bottom = 200.0
+Text = "bomb"
+
+[node name="I6" parent="Row/LeftCol/Grid" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 208.0
+margin_top = 104.0
+margin_right = 304.0
+margin_bottom = 200.0
+Text = "binoculars"
+
+[node name="I7" parent="Row/LeftCol/Grid" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 208.0
+margin_right = 96.0
+margin_bottom = 304.0
+Text = "jedi"
+
+[node name="I8" parent="Row/LeftCol/Grid" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 104.0
+margin_top = 208.0
+margin_right = 200.0
+margin_bottom = 304.0
+Text = "crow"
+
+[node name="I9" parent="Row/LeftCol/Grid" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 208.0
+margin_top = 208.0
+margin_right = 304.0
+margin_bottom = 304.0
+Text = "blender"
+
+[node name="RightCol" type="VBoxContainer" parent="Row"]
+margin_left = 494.0
+margin_right = 984.0
+margin_bottom = 560.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TopCol" type="VBoxContainer" parent="Row/RightCol"]
+margin_right = 490.0
+margin_bottom = 278.0
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Label" type="RichTextLabel" parent="Row/RightCol/TopCol"]
+margin_top = 38.0
+margin_right = 490.0
+margin_bottom = 110.0
+bbcode_enabled = true
+bbcode_text = "[center][b]Custom FA IconTouchButton[/b]
+
+Type an icon name to show[/center]
+"
+text = "Custom FA IconTouchButton
+
+Type an icon name to show
+"
+fit_content_height = true
+
+[node name="Row" type="HBoxContainer" parent="Row/RightCol/TopCol"]
+margin_top = 114.0
+margin_right = 490.0
+margin_bottom = 140.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Row/RightCol/TopCol/Row"]
+margin_left = 165.0
+margin_top = 5.0
+margin_right = 193.0
+margin_bottom = 21.0
+text = "Name"
+
+[node name="LineEdit" type="LineEdit" parent="Row/RightCol/TopCol/Row"]
+margin_left = 197.0
+margin_right = 325.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 128, 0 )
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Icon" parent="Row/RightCol/TopCol" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 197.0
+margin_top = 144.0
+margin_right = 293.0
+margin_bottom = 240.0
+size_flags_horizontal = 4
+
+[node name="BottomCol" type="VBoxContainer" parent="Row/RightCol"]
+margin_top = 282.0
+margin_right = 490.0
+margin_bottom = 560.0
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Label" type="RichTextLabel" parent="Row/RightCol/BottomCol"]
+margin_top = 13.0
+margin_right = 490.0
+margin_bottom = 102.0
+bbcode_enabled = true
+bbcode_text = "[center][b]FALabel[/b]
+
+The following Label
+can display icons[/center]
+"
+text = "FALabel
+
+The following Label
+can display icons
+"
+fit_content_height = true
+
+[node name="FALabel" parent="Row/RightCol/BottomCol" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 106.0
+margin_right = 490.0
+margin_bottom = 264.0
+Text = "I am a RichTextLabel wrapper, I can display BBCode
+like [b]bold text[/b], but now I can also display icons [fa]adjust[/fa] inline,
+here some other examples: [fa]hand-point-left[/fa] [fa]hand-point-right[/fa] [fa]hand-point-up[/fa] [fa]hand-point-down[/fa]
+
+To use, just type \"[fa]\" followed by your icon name (like 'adjust'), and close the tag.
+
+And this is a big icon: [fa size=32]clock[/fa]"
