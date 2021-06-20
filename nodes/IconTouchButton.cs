@@ -3,6 +3,9 @@ using Godot;
 [Tool]
 public class IconTouchButton : Panel
 {
+    [Signal]
+    public delegate void pressed();
+
     public bool Pressed;
 
     [Export]
@@ -49,6 +52,7 @@ public class IconTouchButton : Panel
             {
                 Pressed = false;
                 _touchIndex = -1;
+                EmitSignal(nameof(pressed));
             }
         }
     }
