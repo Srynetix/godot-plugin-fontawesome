@@ -11,6 +11,11 @@ Contains a few C# nodes and utilities:
 
 ![screenshot](./docs/screenshot.png)
 
+## Exporting
+
+You have to specify you want to export `*.json` files in your build.  
+If you forget, the game will crash when you will use FA components.
+
 ## Licenses
 
 - FontAwesome 5.6.1 - SIL OFL 1.1 License - https://fontawesome.com/
