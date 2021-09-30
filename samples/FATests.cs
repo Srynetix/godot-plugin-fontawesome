@@ -1,6 +1,6 @@
 using Godot;
 
-namespace FontAwesome
+namespace SxGD
 {
     public class FATests : Control
     {

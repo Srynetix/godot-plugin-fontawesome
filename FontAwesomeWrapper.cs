@@ -1,47 +1,50 @@
 using Godot;
 using Dictionary = Godot.Collections.Dictionary;
 
-public static class FontAwesomeWrapper
+namespace SxGD
 {
-    private static Dictionary _catalog;
-    private static bool _loaded;
-
-    private static void LoadCatalog()
+    public static class FontAwesomeWrapper
     {
-        if (_loaded) return;
+        private static Dictionary _catalog;
+        private static bool _loaded;
 
-        var f = new File();
-        var err = f.Open("res://addons/fontawesome/assets/fontawesome-icons.json", File.ModeFlags.Read);
-        if (err != Error.Ok)
+        private static void LoadCatalog()
         {
-            GD.PrintErr("Error while loading fontawesome file: ", err);
-            return;
+            if (_loaded) return;
+
+            var f = new File();
+            var err = f.Open("res://addons/fontawesome/assets/fontawesome-icons.json", File.ModeFlags.Read);
+            if (err != Error.Ok)
+            {
+                GD.PrintErr("Error while loading fontawesome file: ", err);
+                return;
+            }
+
+            var result = JSON.Parse(f.GetAsText());
+            if (result.Error != Error.Ok)
+            {
+                GD.PrintErr("Error while parsing fontawesome data: ", err);
+                return;
+            }
+
+            _catalog = (Dictionary)result.Result;
+            _loaded = true;
         }
 
-        var result = JSON.Parse(f.GetAsText());
-        if (result.Error != Error.Ok)
+        public static string ParseIcon(string name)
         {
-            GD.PrintErr("Error while parsing fontawesome data: ", err);
-            return;
+            LoadCatalog();
+
+            // If name is not known, return empty string
+            if (!_catalog.Contains(name))
+            {
+                return "";
+            }
+
+            var keyData = (Dictionary)_catalog[name];
+            var unicodeStr = (string)keyData["unicode"];
+            var unicodeInt = int.Parse(unicodeStr, System.Globalization.NumberStyles.HexNumber);
+            return char.ConvertFromUtf32(unicodeInt);
         }
-
-        _catalog = (Dictionary)result.Result;
-        _loaded = true;
-    }
-
-    public static string ParseIcon(string name)
-    {
-        LoadCatalog();
-
-        // If name is not known, return empty string
-        if (!_catalog.Contains(name))
-        {
-            return "";
-        }
-
-        var keyData = (Dictionary)_catalog[name];
-        var unicodeStr = (string)keyData["unicode"];
-        var unicodeInt = int.Parse(unicodeStr, System.Globalization.NumberStyles.HexNumber);
-        return char.ConvertFromUtf32(unicodeInt);
     }
 }

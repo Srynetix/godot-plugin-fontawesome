@@ -1,10 +1,10 @@
 using Godot;
 
-namespace FontAwesome
+namespace SxGD
 {
 #if TOOLS
     [Tool]
-    public class Plugin : EditorPlugin
+    public class FontAwesomePlugin : EditorPlugin
     {
         public override void _EnterTree()
         {
